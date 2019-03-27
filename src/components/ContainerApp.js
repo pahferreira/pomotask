@@ -6,6 +6,7 @@ import Buttons from "./Buttons";
 
 const { Content } = Layout;
 const TIME = 10;
+const REST_TIME = 5;
 
 class ContainerApp extends Component {
   state = {
@@ -39,6 +40,12 @@ class ContainerApp extends Component {
 
   clockReset = () => {
     this.setState({ currentTime: TIME });
+    this.clockStop();
+  };
+
+  setRest = () => {
+    this.setState({ currentTime: REST_TIME });
+    this.clockStop();
   };
 
   render() {
@@ -52,6 +59,7 @@ class ContainerApp extends Component {
             clockIsRunning={this.state.clockIsRunning}
             clockStart={this.clockStart}
             clockStop={this.clockStop}
+            setRest={this.setRest}
             clockReset={this.clockReset}
           />
         </Content>

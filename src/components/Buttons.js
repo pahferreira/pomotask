@@ -15,9 +15,10 @@ function Buttons(props) {
           }
         }}
       >
-        Work!
+        Play
       </Button>
       <Button onClick={props.clockStop}>Pause</Button>
+      <Button onClick={props.setRest}>Rest</Button>
       <Button type="danger" onClick={props.clockReset}>
         Reset
       </Button>
