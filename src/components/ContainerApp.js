@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Layout, Button } from "antd";
+import { Layout } from "antd";
 
 import Clock from "./Clock";
+import Buttons from "./Buttons";
 
 const { Content } = Layout;
-
 const TIME = 10;
 
 class ContainerApp extends Component {
@@ -28,12 +28,8 @@ class ContainerApp extends Component {
   };
 
   clockStart = () => {
-    if (this.state.clockIsRunning) {
-      window.alert("Clock is already running!");
-    } else {
-      this.timer = setInterval(this.updateTime, 1000);
-      this.setState({ clockIsRunning: true });
-    }
+    this.timer = setInterval(this.updateTime, 1000);
+    this.setState({ clockIsRunning: true });
   };
 
   clockStop = () => {
@@ -52,11 +48,12 @@ class ContainerApp extends Component {
       <Layout>
         <Content>
           <Clock>{formatedTime}</Clock>
-          <Button onClick={this.clockStart}>Work!</Button>
-          <Button onClick={this.clockStop}>Pause</Button>
-          <Button type="danger" onClick={this.clockReset}>
-            Reset
-          </Button>
+          <Buttons
+            clockIsRunning={this.state.clockIsRunning}
+            clockStart={this.clockStart}
+            clockStop={this.clockStop}
+            clockReset={this.clockReset}
+          />
         </Content>
       </Layout>
     );
