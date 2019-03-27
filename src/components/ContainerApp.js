@@ -4,7 +4,7 @@ import { Layout } from "antd";
 import Clock from "./Clock";
 import Buttons from "./Buttons";
 
-const { Content } = Layout;
+const { Content, Footer } = Layout;
 const TIME = 10;
 const REST_TIME = 5;
 
@@ -52,7 +52,7 @@ class ContainerApp extends Component {
     let formatedTime = this.formatTime(this.state.currentTime);
 
     return (
-      <Layout>
+      <Layout style={{ height: 100 + "vh" }}>
         <Content>
           <Clock>{formatedTime}</Clock>
           <Buttons
@@ -63,6 +63,7 @@ class ContainerApp extends Component {
             clockReset={this.clockReset}
           />
         </Content>
+        <Footer>Coded by Pah - 2019</Footer>
       </Layout>
     );
   }

@@ -1,14 +1,8 @@
-import React from 'react';
-import { Row, Col } from 'antd';
+import React from "react";
+import { Row } from "antd";
 
-const Clock = (props) => {
-  return (
-    <Row>
-      <Col>
-        <h1 style={{fontSize: 5 + 'rem'}}>{props.children}</h1>
-      </Col>
-    </Row>
-  )
-}
+const Clock = props => {
+  return <h1 style={{ fontSize: 5 + "rem" }}>{props.children}</h1>;
+};
 
 export default Clock;

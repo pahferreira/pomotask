@@ -1,11 +1,11 @@
 import React from "react";
-import { Button } from "antd";
+import { Button, Row } from "antd";
 import { useAlert } from "react-alert";
 
 function Buttons(props) {
   const alert = useAlert();
   return (
-    <>
+    <Row type="flex" justify="center">
       <Button
         onClick={() => {
           if (props.clockIsRunning) {
@@ -22,7 +22,7 @@ function Buttons(props) {
       <Button type="danger" onClick={props.clockReset}>
         Reset
       </Button>
-    </>
+    </Row>
   );
 }
 
