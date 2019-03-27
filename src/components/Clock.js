@@ -5,7 +5,7 @@ const Clock = (props) => {
   return (
     <Row>
       <Col>
-        <h1 style={{fontSize: 5 + 'rem'}}>00:00</h1>
+        <h1 style={{fontSize: 5 + 'rem'}}>{props.children}</h1>
       </Col>
     </Row>
   )
