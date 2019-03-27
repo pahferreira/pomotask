@@ -6,7 +6,7 @@ import "./App.css";
 import ContainerApp from "./components/ContainerApp";
 
 const alertOptions = {
-  position: "top center",
+  position: "bottom center",
   offset: "30px"
 };
 
