@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Row } from "antd";
+import { Button, Row, Icon } from "antd";
 import { useAlert } from "react-alert";
 
 function Buttons(props) {
@@ -15,12 +15,16 @@ function Buttons(props) {
           }
         }}
       >
-        Play
+        <Icon type="caret-right" />
       </Button>
-      <Button onClick={props.clockStop}>Pause</Button>
-      <Button onClick={props.setRest}>Rest</Button>
+      <Button onClick={props.clockStop}>
+        <Icon type="pause" />
+      </Button>
+      <Button onClick={props.setRest}>
+        <Icon type="clock-circle" />
+      </Button>
       <Button type="danger" onClick={props.clockReset}>
-        Reset
+        <Icon type="reload" />
       </Button>
     </Row>
   );
