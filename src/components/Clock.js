@@ -1,8 +1,10 @@
 import React from "react";
-import { Row } from "antd";
+import { Typography } from "antd";
+
+const { Title } = Typography;
 
 const Clock = props => {
-  return <h1 style={{ fontSize: 5 + "rem" }}>{props.children}</h1>;
+  return <Title style={{ fontSize: 5 + "rem" }}>{props.children}</Title>;
 };
 
 export default Clock;
