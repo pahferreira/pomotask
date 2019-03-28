@@ -1,17 +1,21 @@
 import React, { Component } from "react";
-import { Layout } from "antd";
+import { Layout, Typography } from "antd";
 
 import Clock from "./Clock";
 import Buttons from "./Buttons";
+import FormTask from "./FormTask";
 
 const { Content, Footer } = Layout;
+const { Title } = Typography;
 const TIME = 10;
 const REST_TIME = 5;
 
 class ContainerApp extends Component {
   state = {
     currentTime: TIME,
-    clockIsRunning: false
+    clockIsRunning: false,
+    taskInput: "",
+    taskList: []
   };
 
   formatTime = time => {
@@ -48,12 +52,23 @@ class ContainerApp extends Component {
     this.clockStop();
   };
 
+  onChange = e => {
+    this.setState({ taskInput: e.target.value });
+  };
+
+  onSubmit = e => {
+    e.preventDefault();
+    this.setState({ taskList: [...this.state.taskList, this.state.taskInput] });
+    this.setState({ taskInput: "" });
+  };
+
   render() {
     let formatedTime = this.formatTime(this.state.currentTime);
 
     return (
-      <Layout style={{ height: 100 + "vh" }}>
+      <Layout>
         <Content>
+          <Title>Pomotask</Title>
           <Clock>{formatedTime}</Clock>
           <Buttons
             clockIsRunning={this.state.clockIsRunning}
@@ -61,6 +76,15 @@ class ContainerApp extends Component {
             clockStop={this.clockStop}
             setRest={this.setRest}
             clockReset={this.clockReset}
+          />
+          {/* <Icon
+            type={this.state.clockIsRunning ? "code" : "coffee"}
+            style={{ fontSize: 4 + "rem" }}
+          /> */}
+          <FormTask
+            taskInput={this.state.taskInput}
+            onChange={this.onChange}
+            onSubmit={this.onSubmit}
           />
         </Content>
         <Footer>Coded by Pah - 2019</Footer>
