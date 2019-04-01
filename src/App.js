@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import { Provider as AlertProvider } from "react-alert";
-import AlertTemplate from "react-alert-template-basic";
-import "./App.css";
+import React, { Component } from 'react';
+import { Provider as AlertProvider } from 'react-alert';
+import AlertTemplate from 'react-alert-template-basic';
+import './App.css';
 
-import ContainerApp from "./components/ContainerApp";
+import ContainerApp from './components/ContainerApp';
 
 const alertOptions = {
-  position: "bottom center",
-  offset: "30px"
+  position: 'bottom center',
+  offset: '30px'
 };
 
 class App extends Component {

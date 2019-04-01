@@ -1,6 +1,6 @@
-import React from "react";
-import { Button, Row, Icon } from "antd";
-import { useAlert } from "react-alert";
+import React from 'react';
+import { Button, Row, Icon } from 'antd';
+import { useAlert } from 'react-alert';
 
 function Buttons(props) {
   const alert = useAlert();
@@ -9,7 +9,7 @@ function Buttons(props) {
       <Button
         onClick={() => {
           if (props.clockIsRunning) {
-            alert.show("Clock is already running!");
+            alert.show('Clock is already running!');
           } else {
             props.clockStart();
           }

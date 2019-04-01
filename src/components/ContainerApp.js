@@ -1,9 +1,10 @@
-import React, { Component } from "react";
-import { Layout, Typography } from "antd";
+import React, { Component } from 'react';
+import { Layout, Typography } from 'antd';
 
-import Clock from "./Clock";
-import Buttons from "./Buttons";
-import FormTask from "./FormTask";
+import Clock from './Clock';
+import Buttons from './Buttons';
+import FormTask from './tasks/FormTask';
+import TaskList from './tasks/TaskList';
 
 const { Content, Footer } = Layout;
 const { Title } = Typography;
@@ -14,15 +15,15 @@ class ContainerApp extends Component {
   state = {
     currentTime: TIME,
     clockIsRunning: false,
-    taskInput: "",
+    taskInput: '',
     taskList: []
   };
 
   formatTime = time => {
     let minutes = Math.floor(time / 60)
       .toString()
-      .padStart(2, "0");
-    let seconds = (time - minutes * 60).toString().padStart(2, "0");
+      .padStart(2, '0');
+    let seconds = (time - minutes * 60).toString().padStart(2, '0');
 
     return `${minutes}:${seconds}`;
   };
@@ -59,7 +60,7 @@ class ContainerApp extends Component {
   onSubmit = e => {
     e.preventDefault();
     this.setState({ taskList: [...this.state.taskList, this.state.taskInput] });
-    this.setState({ taskInput: "" });
+    this.setState({ taskInput: '' });
   };
 
   render() {
@@ -69,6 +70,10 @@ class ContainerApp extends Component {
       <Layout>
         <Content>
           <Title>Pomotask</Title>
+          {/* <Icon
+            type={this.state.clockIsRunning ? "code" : "coffee"}
+            style={{ fontSize: 4 + "rem" }}
+          /> */}
           <Clock>{formatedTime}</Clock>
           <Buttons
             clockIsRunning={this.state.clockIsRunning}
@@ -77,10 +82,8 @@ class ContainerApp extends Component {
             setRest={this.setRest}
             clockReset={this.clockReset}
           />
-          {/* <Icon
-            type={this.state.clockIsRunning ? "code" : "coffee"}
-            style={{ fontSize: 4 + "rem" }}
-          /> */}
+          <Title level={3}>Tasklist</Title>
+          <TaskList taskList={this.state.taskList} />
           <FormTask
             taskInput={this.state.taskInput}
             onChange={this.onChange}
